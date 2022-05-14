@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DimensiController;
+use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\KuesionerController;
 
 /*
@@ -54,6 +55,7 @@ Route::get('/logout',[LoginController::class,'logout']);
 Route::resource('users',UserController::class)->middleware('auth');
 Route::resource('dimensi',DimensiController::class)->middleware('auth');
 Route::resource('kuesioner',KuesionerController::class)->middleware('auth');
+Route::resource('jawaban',JawabanController::class)->middleware('auth');
 
 //pasword changes
 Route::get('/changePassword', [UserController::class, 'changePassword'])->name('changePassword')->middleware('auth');

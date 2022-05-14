@@ -19,6 +19,7 @@ class CreateJawabanTable extends Migration
             $table->string('jawaban');
             $table->string('username');
             $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

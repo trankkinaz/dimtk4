@@ -60,8 +60,8 @@
           </button>
           <div class="collapse show" id="menu1-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 medium">
-              <li><a href="/dummy" class="link-light rounded"><i class="bi bi-clipboard-check-fill"></i>&ensp; Isi Kuesioner</a></li>
-              <li><a href="/dummy" class="link-light rounded"><i class="bi bi-easel2-fill"></i>&ensp;Hasil Kuesioner</a></li>
+              <li><a href="{{ route('jawaban.create') }}" class="link-light rounded"><i class="bi bi-toggles2"></i>&ensp; Isi Kuesioner</a></li>
+              <li><a href="/jawaban" class="link-light rounded"><i class="bi bi-kanban-fill"></i>&ensp;Hasil Kuesioner</a></li>
             </ul>
           </div>
         </li>
