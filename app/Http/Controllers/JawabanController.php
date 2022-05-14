@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Jawaban;
-use App\Models\Kuesioner;
+use Illuminate\Http\Request;
+use App\Models\KuesionerFlat;
+use Illuminate\Support\Facades\DB;
 
 class JawabanController extends Controller
 {
@@ -15,11 +16,14 @@ class JawabanController extends Controller
      */
     public function index()
     {
-       
+      
+       //get kuesioner summary by dimensi
+       $smyDimensi=DB::table('view_kuesioner_smy_dimensi')->get();
+
         return view('jawaban.index',[
             'idpage'=>'jawabanIndex',
             'title'=>'Hasil Angket Scorecard'
-        ]);
+        ])->with('smyDimensi',$smyDimensi);
     }
 
     /**
@@ -28,7 +32,8 @@ class JawabanController extends Controller
     public function create()
     {
         //create custom query from kuesioner with jawaban join to provide edit method 
-        $kuesioners=Kuesioner::all();
+        $kuesioners=KuesionerFlat::where('username',auth()->user()->username)->get();
+      
         return view('jawaban.create',[
             'idpage'=>'jawabanCreate',
             'title'=>'Isi Angket Scorecard'
@@ -36,7 +41,7 @@ class JawabanController extends Controller
     }
 
      /**
-     * Store data jawaban with Update or create (upsert)
+     * Store data jawaban with Update or create method
      * based on id_kuesioner and username
      */
     public function store(Request $request, Jawaban $jawaban)
@@ -50,13 +55,9 @@ class JawabanController extends Controller
         $arrJwb=$request->jawaban;
         $arrUser=$request->username;
         for($i=0;$i<count($arrId);$i++ ){
-            Jawaban::upsert([
-                    ['id_kuesioner'=>$arrId[$i],'jawaban'=>$arrJwb[$i],'username'=>$arrUser[$i]]
-                ],[
-                    'id_kuesioner','username'
-                ],[
-                    'jawaban'
-                ]
+            Jawaban::updateOrCreate(
+                ['id_kuesioner'=>$arrId[$i],'username'=>$arrUser[$i]],
+                ['jawaban'=>$arrJwb[$i]]
             );
         }
    

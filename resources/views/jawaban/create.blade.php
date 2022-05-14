@@ -30,23 +30,23 @@
                             <input type="hidden" class="form-control" id="username" name="username[]" value="{{ auth()->user()->username}}">      
                         </div>
                         <div class="form-check" style="padding-left: 3.0em;">
-                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]" required id="pila" value="A">
+                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]" required id="pila" value="A" {{ $rs->jawaban=="A" ? "checked":"" }}>
                             <label class="form-check-label" for="pila">{{ $rs->pila }} </label>   
                         </div>
                         <div class="form-check" style="padding-left: 3.0em;">
-                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pilb" value="B">
+                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pilb" value="B" {{ $rs->jawaban=="B" ? "checked":"" }}>
                             <label class="form-check-label" for="pilb">{{ $rs->pilb }} </label>   
                         </div>
                         <div class="form-check" style="padding-left: 3.0em;">
-                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required  id="pilc" value="C">
+                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required  id="pilc" value="C"  {{ $rs->jawaban=="C" ? "checked":"" }}>
                             <label class="form-check-label" for="pilc">{{ $rs->pilc }} </label>   
                         </div>
                         <div class="form-check" style="padding-left: 3.0em;">
-                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pild" value="D">
+                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pild" value="D"  {{ $rs->jawaban=="D" ? "checked":"" }}>
                             <label class="form-check-label" for="pild">{{ $rs->pild }} </label>   
                         </div>
                         <div class="form-check" style="padding-left: 3.0em;">
-                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pile" value="E">
+                            <input class="form-check-input" type="radio" name="jawaban[{{ $idx }}]"  required id="pile" value="E"  {{ $rs->jawaban=="E" ? "checked":"" }}>
                             <label class="form-check-label" for="pile">{{ $rs->pile }} </label>   
                         </div>
                         @php
