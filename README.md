@@ -23,4 +23,5 @@
 - Clone or download this repo
 - Extract or paste to your web server directory (e.g www folder in xampp/wamp/laragon)
 - create empty database in mysql server, set database name: dimtk4
+- using database manager (heidisql, mysql workbench) restore from dump file here 
 - open terminal/command prompt and navigate extracted folder
